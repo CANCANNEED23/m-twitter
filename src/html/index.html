@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Text File Content</title>
+</head>
+<body>
+    <div id="fileContent"></div>
+
+    <script>
+        // Fetch the content of the text file
+        fetch('/data/message/1234.txt')
+            .then(response => response.text())
+            .then(data => {
+                // Display the content in the 'fileContent' div
+                document.getElementById('fileContent').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error fetching the file:', error);
+            });
+    </script>
+</body>
+</html>
